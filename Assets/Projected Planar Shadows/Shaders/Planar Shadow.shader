@@ -33,7 +33,7 @@
 			};
 
 			float4 _Color;
-			float4 _PlaneNormalVectorMatrix;
+			float4 _PlaneNormal;
 
 			v2f vert(appdata v)
 			{
@@ -43,11 +43,11 @@
 				float4 worldLightDirection = -normalize(_WorldSpaceLightPos0);
 				
 				// Calculate vertex offset
-				float planeNormalDotLightDir = dot(_PlaneNormalVectorMatrix, worldLightDirection);
-				float planeNormalDotWorldVertex = dot(_PlaneNormalVectorMatrix, mul(unity_ObjectToWorld, v.vertex));
+				float planeNormalDotLightDir = dot(_PlaneNormal, worldLightDirection);
+				float planeNormalDotWorldVertex = dot(_PlaneNormal, mul(unity_ObjectToWorld, v.vertex));
 				float3 worldVertexToPlaneVector = worldLightDirection * (planeNormalDotWorldVertex / (-planeNormalDotLightDir));
 
-				// Clip position in local space, convert to world
+				// Add vertex offset in local coordinates before applying final transformation
 				o.vertex = UnityObjectToClipPos(v.vertex + mul(unity_WorldToObject, worldVertexToPlaneVector));
 
 				// Apply fog
