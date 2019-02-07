@@ -22,8 +22,12 @@ public class PlanarShadowController : MonoBehaviour
         if (shadowReceiverPlane != null)
         {
             /// Update shader's plane normal vector matrix
-            meshRenderer.sharedMaterial.SetVector("_PlaneNormalVectorMatrix", 
-                shadowReceiverPlane.transform.worldToLocalMatrix.GetRow(1));
+            meshRenderer.sharedMaterial.SetVector("_PlaneNormalVectorMatrix",
+               //shadowReceiverPlane.transform.worldToLocalMatrix.GetRow(1));
+               new Vector4(shadowReceiverPlane.transform.up.x,
+               shadowReceiverPlane.transform.up.y,
+               shadowReceiverPlane.transform.up.z,
+               -Vector3.Dot(shadowReceiverPlane.transform.up, shadowReceiverPlane.transform.position)));
         }
     }
 }
