@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477636958}
   m_Layer: 0
-  m_Name: Mesh Blob Shadow Receiver
+  m_Name: Shadow Receiver Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
