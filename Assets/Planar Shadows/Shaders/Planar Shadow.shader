@@ -1,4 +1,4 @@
-﻿﻿Shader "Stylised Shadows/Planar Shadow"
+﻿﻿Shader "Stylised Shadows/Mesh Blob Shadow"
 {
 	Properties
 	{
@@ -42,14 +42,14 @@
 				// In ForwardBase light mode _WorldSpaceLightPos0 is always direction light
 				float4 worldLightDirection = -normalize(_WorldSpaceLightPos0);
 
-				// Calculate the distance between the vertex and projection plane
-				float vertexToPlaneDistance = dot(_PlaneNormalVectorMatrix, worldLightDirection);
+				// Project light direction onto a plane
+				float lightToPlaneNormalDistance = dot(_PlaneNormalVectorMatrix, worldLightDirection);
 
-				// Calculate the distance between vertex and projection plane using plane normal direction
+				// Project vertex (world coordinates) onto a plane
 				float vertextToPlaneNormalDistance = dot(_PlaneNormalVectorMatrix, mul(unity_ObjectToWorld, v.vertex));
 
-				// Calculate final vertex offset by scaling world light vector
-				float3 worldVertexToPlaneVector = worldLightDirection * (vertextToPlaneNormalDistance / (-vertexToPlaneDistance));
+				// Calculate final vertex offset by scaling world light direction vector
+				float3 worldVertexToPlaneVector = worldLightDirection * (vertextToPlaneNormalDistance / (-lightToPlaneNormalDistance));
 
 				// Clip position in local space, convert to world
 				o.vertex = UnityObjectToClipPos(v.vertex + mul(unity_WorldToObject, worldVertexToPlaneVector));
