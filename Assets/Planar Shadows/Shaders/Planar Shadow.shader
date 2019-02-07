@@ -41,13 +41,10 @@
 
 				// In ForwardBase light mode _WorldSpaceLightPos0 is always direction light
 				float4 worldLightDirection = -normalize(_WorldSpaceLightPos0);
-
 				// Project light direction onto a plane
 				float lightToPlaneNormalDistance = dot(_PlaneNormalVectorMatrix, worldLightDirection);
-
 				// Project vertex (world coordinates) onto a plane
 				float vertextToPlaneNormalDistance = dot(_PlaneNormalVectorMatrix, mul(unity_ObjectToWorld, v.vertex));
-
 				// Calculate final vertex offset by scaling world light direction vector
 				float3 worldVertexToPlaneVector = worldLightDirection * (vertextToPlaneNormalDistance / (-lightToPlaneNormalDistance));
 
