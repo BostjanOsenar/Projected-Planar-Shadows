@@ -1,4 +1,4 @@
-﻿﻿Shader "Stylised Shadows/Mesh Blob Shadow"
+﻿﻿Shader "Simple Shadows/Projected Planar Shadow"
 {
 	Properties
 	{
@@ -43,8 +43,8 @@
 				float4 worldLightDirection = -normalize(_WorldSpaceLightPos0);
 				
 				// Calculate vertex offset
-				float planeNormalDotLightDir = dot(_PlaneNormal, worldLightDirection);
 				float planeNormalDotWorldVertex = dot(_PlaneNormal, mul(unity_ObjectToWorld, v.vertex));
+				float planeNormalDotLightDir = dot(_PlaneNormal, worldLightDirection);
 				float3 worldVertexToPlaneVector = worldLightDirection * (planeNormalDotWorldVertex / (-planeNormalDotLightDir));
 
 				// Add vertex offset in local coordinates before applying final transformation
