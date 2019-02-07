@@ -2,7 +2,7 @@
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(MeshRenderer))]
-public class MeshBlobShadowController : MonoBehaviour
+public class PlanarShadowController : MonoBehaviour
 {
     public Transform shadowReceiverPlane;
 
@@ -17,9 +17,9 @@ public class MeshBlobShadowController : MonoBehaviour
     {
         if (shadowReceiverPlane != null)
         {
+            /// Update shader's plane normal vector matrix
             meshRenderer.sharedMaterial.SetVector("_PlaneNormalVectorMatrix", 
                 shadowReceiverPlane.transform.worldToLocalMatrix.GetRow(1));
         }
     }
-
 }

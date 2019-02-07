@@ -1,4 +1,4 @@
-﻿﻿Shader "Stylised Shadows/Mesh Blob Shadow"
+﻿﻿Shader "Stylised Shadows/Planar Shadow"
 {
 	Properties
 	{
