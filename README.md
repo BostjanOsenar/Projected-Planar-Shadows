@@ -2,6 +2,8 @@
 This is a proof-of-concept project that demonstrates possible implementation of
 planar shadows in Unity.
 
+![Teapots with projected planar shadows](https://www.cosmicworks.io/images/blog/implementing-planar-shadows/teapots-mesh-view.jpg)
+
 The shadows are created by taking a mesh and projecting it onto a flat plane.
 This is implemented using a shader that performs vertex deformations and a
 controller script that has to be attached to each shadow mesh object in order to
@@ -21,3 +23,8 @@ increase performance.
 They work well on flat or relatively flat surfaces only. Objects can not have
 self-shadow, other than shadow receiving plane no other objects receive the
 shadow. Z-fighting can occur.
+
+---
+[Read more][Blog]
+
+[Blog]: https://www.cosmicworks.io/2019/02/implementing-planar-shadows/
