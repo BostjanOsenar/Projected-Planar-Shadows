@@ -7,6 +7,10 @@ This is implemented using a shader that performs vertex deformations and a
 controller script that has to be attached to each shadow mesh object in order to
 set the shadow receiving plane's normal information on the shader.
 
+The project is set-up to have two teapots with shadow meshes, one with low-poly
+and other high-poly mesh. To prevent Z-fighting the shadow receiving plane has a
+small offset from the actual ground plane.
+
 ## The good
 Projected mesh creates hard shadows that can be very fast to render. They work
 really well on flat surfaces only. A high-poly mesh of shadow caster object can
@@ -16,4 +20,4 @@ increase performance.
 ## The bad
 They work well on flat or relatively flat surfaces only. Objects can not have
 self-shadow, other than shadow receiving plane no other objects receive the
-shadow.
+shadow. Z-fighting can occur.
