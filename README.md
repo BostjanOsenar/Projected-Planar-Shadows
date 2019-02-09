@@ -27,4 +27,4 @@ shadow. Z-fighting can occur.
 ---
 [Read more][Blog]
 
-[Blog]: https://www.cosmicworks.io/2019/02/implementing-planar-shadows/
+[Blog]: https://www.cosmicworks.io/blog/2019/02/implementing-planar-shadows/
