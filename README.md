@@ -2,7 +2,7 @@
 This is a proof-of-concept project that demonstrates possible implementation of
 planar shadows in Unity.
 
-![Teapots with projected planar shadows](https://www.cosmicworks.io/images/blog/implementing-planar-shadows-in-unity/teapots-mesh-view.jpg)
+![Teapots with projected planar shadows](https://www.cosmicworks.io/blog/implementing-planar-shadows-in-unity/images/figure-teapots-mesh-view.jpg)
 
 The shadows are created by taking a mesh and projecting it onto a flat plane.
 This is implemented using a shader that performs vertex deformations and a
